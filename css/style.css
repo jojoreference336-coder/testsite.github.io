@@ -13,6 +13,13 @@ body.lynch-body {
   );
   background-attachment: fixed;
 }
+/* ---- Глобальный фикс длинных слов ---- */
+body, td, p, a, li, div {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
 
 /* Верхняя панель */
 .top-bar {
@@ -479,7 +486,6 @@ text-align: center;
 
 /* ============================
       АДАПТИВНОСТЬ САЙТА
-      Вариант B — меню в колонку
    ============================ */
 
 /* Глобальный контейнер */
@@ -623,3 +629,20 @@ img {
     font-size: 13px;
   }
 }
+/* ---- Полный адаптив таблиц без скролла ---- */
+.resume-table,
+.article-content table {
+  display: table;     /* вернуть нормальный режим */
+  width: 100%;  
+  table-layout: fixed;  /* ячейки сами подстраиваются */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.resume-table td,
+.article-content td,
+.article-content th {
+  white-space: normal;   /* строки переносятся */
+  word-break: break-word; /* длинные слова тоже переносятся */
+}
+
