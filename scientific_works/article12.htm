@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Повышение производительности баз данных</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="lynch-body">
+
+<!-- Контент -->
+<main class="container lynch-main">
+  <!-- Кнопка назад -->
+  <div class="article-button">
+    <a href="index.htm" class="back-link">← Назад в библиотеку</a>
+  </div>
+
+  <!-- Статья -->
+  <div class="individual-block">
+    <div class="article-annotation">
+      <p><strong>Источник: </strong><a href="https://www.elibrary.ru/item.asp?edn=bqzzdb&ysclid=mj19u2vo80726368117">https://www.elibrary.ru/item.asp?edn=bqzzdb&ysclid=mj19u2vo80726368117</a></p>
+    </div>
+        <div class="article-author">
+      <p style="text-align: left;">Докукина Ирина Александровна, канд. техн. наук, доцент, dokukina.ia@ssau.ru, Россия, Самара, Самарский национальный исследовательский университет имени академика С.П. Королева,</p>
+      <p style="text-align: left;">Антипов Дмитрий Вячеславович, д-р техн. наук, доцент, заведующий кафедрой, conexpert@mail.ru, Россия, Самара, Самарский национальный исследовательский университет имени академика С.П. Королева </p>
+      <p>SOFTWARE COMPLEX FOR DETERMINING THE PARAMETERS OF THE TECHNOLOGICAL PROCESS NECESSARY FOR FORMING A PLASMA COATING</p>
+      <p>E.K. Savich, I.A. Dokukina, D.V. Antipov</p>
+      <p style="text-align: left;">Simulation of heating, melting and deformation of particles of powder material used for applying heat-protective coatings on parts of gas turbine engines has been carried out. A software and computational complex has been developed to determine the parameters of the technological process necessary for the formation of a plasma coating. </p>
+      <p style="text-align: left;">Key words: software and computational complex, technological process, plasma coating.</p>
+      <p style="text-align: left;">Savich Ekaterina Konstantinovna, postgraduate, savich.ekaterina@mail.ru, Russia, Samara, Samara National Research University named after academician S.P. Queen,</p>
+      <p style="text-align: left;">Dokukina Irina Aleksandrovna, candidate of technical sciences, docent, dokukina.ia@ssau.ru, Russia, Samara, Samara National Research University named after academician S.P. Queen,</p>
+      <p style="text-align: left;">Antipov Dmitriy Vyacheslavovich, doctor of technical sciences, docent, head of department, con-expert@mail.ru, Russia, Samara, Samara National Research University named after academician S.P. Queen</p>
+    </div>
+    <!-- Заголовок статьи -->
+    <div class="article-title">
+      <p style="text-align: right;">УДК 004.891.2</p>
+      <p style="text-align: right;">DOI: 10.24412/2071-6168-2021-9-371-373 </p>
+      <h1>
+        ПОВЫШЕНИЕ ПРОИЗВОДИТЕЛЬНОСТИ БАЗ ДАННЫХ
+      </h1>
+      <p>
+        <strong>И.Н. Набродова, Г.А. Кузнецов  </strong>
+      </p>
+    </div>
+
+    <!-- Аннотация -->
+    <div class="article-annotation">
+      <p>
+        <strong>Целью исследования является изучение и определение ключевых пунктов оптимизации баз данных для повышения их производительности на нагруженных проектах. </strong>
+      </p>
+      <p><strong>Ключевые слова:</strong> база данных, индекс, корреляционный запрос, хранимая процедура, триггер, временная таблица. </p>
+    </div>
+
+    <!-- Содержание статьи -->
+    <div class="article-content">
+      <!-- Основной текст статьи -->
+      <p>Системы управления базами данных предоставляют возможность не только хранить и 
+управлять данными, но и исполнять пользовательский код на сервере. Примером могут выступать хранимые процедуры и триггеры. Но при том, что это достаточно популярная практика, 
+одна операция изменения данных может привести к вызову нескольких хранимых процедур по 
+цепочке и приведет к нежелательным блокировкам [1].</p>
+<p>Примером может служить каскадное удаление данных из таблиц реляционных баз 
+данных, когда исключение одной строки приводит к удалению связанных записей в таблицах 
+(рис. 1).</p>
+      <!-- Изображения -->
+      <div class="article-picture">
+        <img src="images/ar12_1.jpg" style="max-width:40%;">
+        <p>Рис. 1. Добавление каскадного удаления строк</p>
+      </div>
+
+      <p>В результате расширенная функциональность позволяет пользователю упростить его 
+работу с базами данных, но при неоптимальном использовании может привести к снижению 
+производительности.  </p>
+      <p>Ключевые моменты оптимизации баз данных:</p>
+      <p>1) Грамотно использовать индексы. </p>
+      <p>Индексы – это эффективный способ управления получением информации из базы данных. Они ускоряют запросы, помогая искать данные в базе более оптимально, и предоставляют доступ к строкам данных в таблице без полного перебора. Аналогией может служить предметный указатель в книге, который хранит адреса терминов для их поиска [1]. </p>
+      <p>Например, если создать кластерный индекс по первичному ключу, то в базе данных создастся иерархическое хранилище указателей на данные в этой таблице. И при попытке поиска данных будет выполняться поиск по заданному индексу, а не выполняться полный перебор всех строк таблицы (рис. 2). </p>
+      <p></p>
+
+            <div class="article-picture">
+        <img src="images/ar12_2.jpg" style="max-width:40%;">
+        <p>Рис. 2. Добавление первичного ключа с кластерным индексом </p>
+      </div>
+
+      <p>Кроме того, стоит учесть, что использовать индексы в таблицах, где частые INSERT, UPDATE и DELETE, плохая практика. При обновлении таблицы так же приходится и обновлять индексы, что может привести к их фрагментации. Поэтому, если данные требуют частых обновлений, то индексы могут стать плохой практикой, замедляющей работу базы данных [2]. </p>
+      <p>2) Избегать коррелирующих подзапросов. </p>
+      <p>Основная проблема коррелирующих запросов в том, что они выполняются для каждой строки (рис. 3). Для использования в родительском запросе базе данных приходится построчно выполнять код в подзапросе, что замедляет работу SELECT [3]. </p>
+                  <div class="article-picture">
+        <img src="images/ar12_3.jpg" style="max-width:40%;">
+        <p>Рис. 3. Пример коррелирующего запроса</p>
+      </div>
+
+      <p>3) Не использовать SELECT всех столбцов через «*». </p>
+      <p>Для получения данных лучше использовать конечные имена столбцов, чтобы ограничить выборку и не выгружать ненужные строки. Для грамотного SELECT запроса необходимо указывать названия столбцов явно, а также лучше выбирать то количество строк, которое необходимо в данный момент времени (рис. 4). Даже если требуется выбрать все столбцы таблицы, лучше указать их явно, чтобы при повторном использовании кода не возникало ошибок и проблем с производительностью [1]. </p>
+
+                        <div class="article-picture">
+        <img src="images/ar12_4.jpg" style="max-width:40%;">
+        <p>Рис. 4. Пример запросов с полным именованием колонок</p>
+      </div>
+
+      <p>4) Пользоваться временными таблицами грамотно. </p>
+      <p>Временные таблицы в основном могут усложнять структуру запроса и требовать большее количество ресурсов. Поэтому, если есть возможность создать запрос без временных таблиц, то лучше их избегать.  Временные таблицы являются хорошим решением в хранимых процедурах, если операции с обрабатываемыми данными невозможно выполнить в одном запросе [2].</p>
+      <p>Например, если требуется сделать JOIN большой таблицы, то более оптимизированным решением будет вынести выборку данных во временную таблицу, и после этого сделать JOIN, так как это будет быстрее и выгоднее по памяти. </p>
+      <p>Также после завершения работы с временной таблицей ее лучше удалить и освободить 
+ресурсы (рис. 5). Если не удалить ее, то таблица будет существовать до автоматической очистки (после закрытия соединения с сервером БД) [3]. </p>
+
+                        <div class="article-picture">
+        <img src="images/ar12_5.jpg" style="max-width:40%;">
+        <p>Рис. 5. Пример использования временных таблиц </p>
+      </div>
+
+      <p>Таким образом, при использовании данных рекомендаций можно повысить производительность базы данных, не прибегая к изменениям ее структуры. </p>
+
+
+      <h2>Список литературы</h2>
+      <ol>
+        <li>1. Кэмпбелл Лейн, Мейджорс Черити. Базы данных. Инжиниринг надежности. СПб.: Питер, 2020. 304 с. </li>
+        <li>2. Грофф, Джеймс Р., Пол Н., Оппель, Эндрю Дж. SQL: Полное руководство. 3-е изд.: Пер. с англ. – М.: ООО «И.Д. Вильямс», 2015. 960 с. </li>
+        <li>3. John L. Viescas, Douglas J. Steele, Ben G. Clothier Effective SQL: 61 Specific Ways to Write Better SQL. Addison-Wesley Professional, 2016. Т. 352.</li>
+      </ol>
+      <p>Набродова Ирина Николаевна, канд. техн. наук, доцент, ira1978@tsu.tula.ru, Россия, Тула, Тульский государственный университет, </p>
+      <p>Кузнецов Григорий Алексеевич, магистрант, gregory.kuznetsov1998@gmail.com, Россия, Тула, Тульский государственный университет </p>
+      <!-- Английская версия аннотации -->
+      <div class="article-annotation">
+        <h2>IMPROVING DATABASE PERFORMANCE </h2>
+        <p style="text-align: center;"></p>
+        <p>The purpose of the study is to learn and determine the key points for optimizing their per
+formance on loaded projects</p>
+        <p><strong>Key words:</strong>  database, index, correlation query, stored procedure, trigger, temporary table. </p>
+        <p>Nabrodova Irina Nikolaevna, candidate of technical sciences, docent, ira1978@tsu.tula.ru, Russia, Tula, Tula State University, </p>
+<p>Kuznetsov Grigory Alekseevich, undergraduate, gregory.kuznetsov1998@gmail.com, Russia, Tula, Tula State University</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Подвал -->
+<footer class="footer lynch-footer">
+  <div class="container">
+    <nav class="bottom-menu">
+      <a href="../diss/index.html">Реферат</a>
+      <a href="../science.html">Научные труды</a>
+      <a href="../ind/index.html">Индивидуальный раздел</a>
+    </nav>
+  </div>
+</footer>
+
+<!-- Кнопка наверх -->
+<button id="toTop">↑</button>
+
+<script>
+  const toTop = document.getElementById("toTop");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      toTop.classList.add("show");
+    } else {
+      toTop.classList.remove("show");
+    }
+  });
+  toTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+</body>
+</html>
